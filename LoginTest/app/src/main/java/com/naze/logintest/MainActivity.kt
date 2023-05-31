@@ -18,6 +18,9 @@ class MainActivity : AppCompatActivity() {
         //네아로 객체 초기화
         setNaverLogin()
 
+        binding.btnLogout.setOnClickListener {
+            NaverIdLoginSDK.logout()
+        }
     }
 
     private fun setNaverLogin() {
