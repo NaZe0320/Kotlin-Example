@@ -23,12 +23,11 @@ class ImageSliderAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val imageResId = images[position]
-        holder.item.setImageDrawable(ContextCompat.getDrawable(context, images[position]))
+        holder.item.setImageDrawable(ContextCompat.getDrawable(context, images[position%images.size]))
 
     }
 
     override fun getItemCount(): Int {
-        return images.size
+        return Int.MAX_VALUE
     }
 }
