@@ -24,7 +24,6 @@ class ImageSliderAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.item.setImageDrawable(ContextCompat.getDrawable(context, images[position%images.size]))
-
     }
 
     override fun getItemCount(): Int {

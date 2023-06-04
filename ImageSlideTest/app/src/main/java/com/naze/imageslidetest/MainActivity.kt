@@ -23,11 +23,14 @@ class MainActivity : AppCompatActivity() {
         R.drawable.ic_launcher_background
     )
 
+    private val texts = mutableListOf<String>(
+        "Foreground",
+        "Background"
+    )
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-
-
 
         initViewPager()
     }
@@ -39,12 +42,16 @@ class MainActivity : AppCompatActivity() {
             adapter = imageAdapter
         }
 
-        val nextItem = Int.MAX_VALUE / 2 - ceil(images.size.toDouble() / 2 ).toInt()
+        val nextItem = Int.MAX_VALUE / 2 - ceil(images.size.toDouble() / 2 ).toInt() //무한 스크롤링
         binding.viewPager.setCurrentItem(nextItem, false)
+        binding.tvViewCount.text = "${nextItem%images.size+1} / ${images.size}"
+        binding.tvInfo.text = texts[nextItem%images.size]
 
         binding.viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
+                binding.tvViewCount.text = "${position%images.size+1} / ${images.size}"
+                binding.tvInfo.text = texts[position%images.size]
             }
         })
 
@@ -52,6 +59,7 @@ class MainActivity : AppCompatActivity() {
             val offset = resources.getDimensionPixelOffset(R.dimen.viewpager_next_item_offset)
             page.translationX = -position * offset
         }*/
+
 
     }
 
