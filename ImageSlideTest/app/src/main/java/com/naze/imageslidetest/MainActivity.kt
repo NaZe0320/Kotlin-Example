@@ -27,21 +27,23 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
+
+
         initViewPager()
     }
 
     private fun initViewPager() {
         val imageAdapter = ImageSliderAdapter(this@MainActivity, images)
-        binding.viewPager.apply {
 
+        binding.viewPager.apply {
             adapter = imageAdapter
         }
+
+        val nextItem = Int.MAX_VALUE / 2 - ceil(images.size.toDouble() / 2 ).toInt()
+        binding.viewPager.setCurrentItem(nextItem, false)
+
         binding.viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
-                if (position == imageAdapter.itemCount - 1) {
-                    val nextItem = Int.MAX_VALUE / 2 - ceil(images.size.toDouble() / 2 ).toInt()
-                    binding.viewPager.setCurrentItem(nextItem, true)
-                }
                 super.onPageSelected(position)
             }
         })
