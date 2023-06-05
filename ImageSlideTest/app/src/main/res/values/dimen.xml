@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="viewpager_next_item_offset">48dp</dimen>
+
+    <dimen name="pageMargin">48dp</dimen>
+    <dimen name="pagerWidth">300dp</dimen>
 </resources>
