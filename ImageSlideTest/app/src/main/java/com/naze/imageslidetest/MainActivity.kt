@@ -12,6 +12,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.internal.DescendantOffsetUtils
 import com.naze.imageslidetest.databinding.ActivityMainBinding
 import kotlin.math.ceil
@@ -68,8 +69,23 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
+        val bottomBehavior = BottomSheetBehavior.from(binding.bottomSheet.root)
+
+        bottomBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
+
+        bottomBehavior.apply {
+            addBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
+                override fun onStateChanged(bottomSheet: View, newState: Int) {
+
+                }
+
+                override fun onSlide(bottomSheet: View, slideOffset: Float) {
+                    //슬라이드 될때 offset / hide -1.0 ~ collapsed 0.0 ~ expended 1.0
 
 
+                }
+            })
+        }
     }
 
 
