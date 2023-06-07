@@ -74,17 +74,7 @@ class MainActivity : AppCompatActivity() {
         bottomBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
 
         bottomBehavior.apply {
-            addBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
-                override fun onStateChanged(bottomSheet: View, newState: Int) {
 
-                }
-
-                override fun onSlide(bottomSheet: View, slideOffset: Float) {
-                    //슬라이드 될때 offset / hide -1.0 ~ collapsed 0.0 ~ expended 1.0
-
-
-                }
-            })
         }
     }
 
