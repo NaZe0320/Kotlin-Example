@@ -12,7 +12,8 @@
         app:behavior_hideable="false"
         app:behavior_peekHeight="32dp"
         app:behavior_draggable="true"
-        app:behavior_fitToContents="true"
+        app:behavior_fitToContents="false"
+        app:behavior_halfExpandedRatio="0.3"
         app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
         <View
