@@ -112,7 +112,8 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onSlide(bottomSheet: View, slideOffset: Float) {
-
+                binding.bottomSheet.tvBottomContent.alpha = slideOffset
+                Log.d("BottomSheetBehavior Test2","$slideOffset")
             }
 
         })
