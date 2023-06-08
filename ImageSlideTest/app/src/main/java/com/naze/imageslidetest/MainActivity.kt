@@ -73,9 +73,49 @@ class MainActivity : AppCompatActivity() {
 
         bottomBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
 
-        bottomBehavior.apply {
+        bottomBehavior.addBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
+            override fun onStateChanged(bottomSheet: View, newState: Int) {
+                when (newState) {
+                    BottomSheetBehavior.STATE_EXPANDED -> {
+                        //완전히 펼쳐진 상태
+                        Log.d("BottomSheetBehavior Test","STATE_EXPANDED")
+                        binding.bottomSheet.tvBottomTitle.text = "완전 펼쳐짐!"
+                        binding.bottomSheet.iconTitle.text = "완전 펼쳐짐!"
+                    }
+                    BottomSheetBehavior.STATE_COLLAPSED -> {
+                        //접혀있는 상태
+                        Log.d("BottomSheetBehavior Test","STATE_COLLAPSED")
+                        binding.bottomSheet.tvBottomTitle.text = "접힘!"
+                        binding.bottomSheet.iconTitle.text = "접힘!"
+                    }
+                    BottomSheetBehavior.STATE_HIDDEN -> {
+                        //아래로 숨겨진 상태(안 보일 때)
+                        Log.d("BottomSheetBehavior Test","STATE_SETTLING")
+                    }
+                    BottomSheetBehavior.STATE_HALF_EXPANDED -> {
+                        //절반 펼쳐진 상태
+                        Log.d("BottomSheetBehavior Test","STATE_HALF_EXPANDED")
+                        binding.bottomSheet.tvBottomTitle.text = "반만 펼쳐짐!"
+                        binding.bottomSheet.iconTitle.text = "반만 펼쳐짐!"
+                    }
+                    BottomSheetBehavior.STATE_DRAGGING -> {
+                        //드래그 되고 있는 상태
+                        Log.d("BottomSheetBehavior Test","STATE_DRAGGING")
+                        binding.bottomSheet.tvBottomTitle.text = "드래그 중!"
+                        binding.bottomSheet.iconTitle.text = "드래그 중!"
+                    }
+                    BottomSheetBehavior.STATE_SETTLING -> {
+                        //드래그/스와이프 직후 고정된 상태
+                        Log.d("BottomSheetBehavior Test","STATE_SETTLING")
+                    }
+                }
+            }
 
-        }
+            override fun onSlide(bottomSheet: View, slideOffset: Float) {
+
+            }
+
+        })
     }
 
 
