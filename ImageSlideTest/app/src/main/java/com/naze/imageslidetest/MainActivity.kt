@@ -1,6 +1,7 @@
 package com.naze.imageslidetest
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.graphics.Rect
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -37,6 +38,11 @@ class MainActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         initViewPager()
+
+        binding.btnMove.setOnClickListener {
+            val intent = Intent(this, CoordinatorTest::class.java )
+            startActivity(intent)
+        }
     }
 
     private fun initViewPager() {
